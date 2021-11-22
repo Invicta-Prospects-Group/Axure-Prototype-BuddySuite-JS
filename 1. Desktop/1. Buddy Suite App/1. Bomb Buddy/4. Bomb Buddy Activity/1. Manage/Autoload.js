@@ -37,4 +37,14 @@
   // -----------------------------------
   // specific stuff here
   // -----------------------------------
+
+  $axure.ex.fn.fnClearPaxCardData = function (controlGroup) {
+    var rows = $axure("@ControlTableRepeaterRegistry")
+      .getRepeaterData()
+      .filter((row) => row.control_group.text == controlGroup);
+    for (let i = 0; i < rows.length; i++) {
+      alert("Clearing data for table " + rows[i].control_instance.text);
+      $axure(rows[i].table_id.text).clearRepeaterData().refreshRepeater();
+    }
+  };
 })();
