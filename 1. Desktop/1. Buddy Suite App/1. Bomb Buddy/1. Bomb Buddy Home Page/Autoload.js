@@ -17,4 +17,8 @@
   // -----------------------------------
   // specific stuff here
   // -----------------------------------
+  $axure.ex.fn.DidYouGetThis = function(name) {
+    alert("I'm '" + $var.pageName + "' and got this from '" + name + "'");
+  };
+  parent.$axure.ex.fn.fnRegisterChildPage(window);
 })();
