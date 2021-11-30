@@ -1,22 +1,19 @@
 // The following is an auto run function, so anything inside it will run
-
 (function () {
   // -----------------------------------
   // general stuff to always run
   // -----------------------------------
-
   // get the document name for later use
   $var.pageName = $(document).attr("title");
-
   // Custom test function for calling from within
   // an Axure action expression or other script
   $axure.ex.fn.fnTestThisOut = function (value, val2) {
     alert("Hey " + value + " - " + val2 + " [from: " + $var.pageName + "]");
   };
-
   // -----------------------------------
   // specific stuff here
   // -----------------------------------
+  // Function to allow child page to register itself
   $axure.ex.fn.fnRegisterChildPage = function(child){
     $var.child = child;
     alert('I got the child!');
@@ -28,11 +25,10 @@
     this.firstName = firstName;
     this.lastName = lastName;
     this.ir = ir;
-    GetFullName = function() {return this.firstName + ' ' + this.lastName};
+    this.fullName = this.firstName + " " + this.lastName;
   }
   // Return Pax Details for Logged in User
   $axure.ex.fn.fnGetPaxDetails = function(){
-    //debugger;
     var userId = $axure.getGlobalVariable('LoggedInUserId');
     var rows = $axure("@Master PAX Data Table")
       .getRepeaterData()
