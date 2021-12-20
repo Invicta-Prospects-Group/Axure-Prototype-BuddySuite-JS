@@ -8,7 +8,11 @@
   $axure.ex.fn.fnGetUnreadAlertsCount = function name(paxId) {
     var rows = $axure("@Alerts Data")
       .getRepeaterData()
-      .filter((row) => row.pax.text == paxId && !(row.read.text === 'true'));
+      .filter((row) => row.pax.text == paxId && !(row.read.text === "true"));
     return rows.length;
+  };
+  // Allow child(ish) to add alert for Blast Exposure
+  $axure.ex.fn.fnAddMailNotificationForBlastExposure = function () {
+    $axure("@_Function.Alerts.Special.AddBlastAlert").click();
   };
 })();
